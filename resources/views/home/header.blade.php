@@ -1,0 +1,64 @@
+
+<head>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+
+</head>
+<div class="header_main">
+    <div class="mobile_menu">
+       <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="logo_mobile"><a href="index.html"><img src="images/logo.png"></a></div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+             <ul class="navbar-nav">
+                <li class="nav-item">
+                   <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                   <a class="nav-link" href="{{route('about')}}">About</a>
+                </li>
+                
+                <li class="nav-item">
+                   <a class="nav-link " href="{{route('blogs')}}">Blog</a>
+                </li>
+                <li class="nav-item">
+                   <a class="nav-link " href="{{route('login')}}">Login</a>
+                   <a class="nav-link " href="{{route('register')}}">Register</a>
+                </li>
+             </ul>
+          </div>
+       </nav>
+    </div>
+    <div class="container-fluid">
+       <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
+       <div class="menu_main">
+          <ul>
+             <li class="active"><a href="/">Home</a></li>
+             <li><a href="{{route('about')}}">About</a></li>
+             
+          
+             <li><a href="{{route('blogs')}}">Blog</a></li>
+          
+             @if(Route::has('login'))
+             @auth
+             <li>
+             <x-app-layout>
+             </x-app-layout>
+            </li>
+            <li><a href="{{url('my_post')}}">My Posts</a></li>
+            <li><a href="{{url('create_post')}}">Create Post</a></li>
+             @else
+             <li><a href="{{route('login')}}">Login</a></li>
+             <li><a href="{{route('register')}}">Register</a></li>
+             @endauth
+             @endif
+             
+             
+
+          </ul>
+       </div>
+    </div>
+ </div>
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
